@@ -42,6 +42,7 @@ public class MenuPpal extends javax.swing.JFrame {
         btnBuscar = new javax.swing.JButton();
         ScrollTblRsResultado = new javax.swing.JScrollPane();
         TblRsResultado = new javax.swing.JTable();
+        ChkInactivo = new javax.swing.JCheckBox();
         jPanelComunas = new javax.swing.JPanel();
         jLabelNombre = new javax.swing.JLabel();
         jLabelEstado = new javax.swing.JLabel();
@@ -187,11 +188,16 @@ public class MenuPpal extends javax.swing.JFrame {
         ));
         ScrollTblRsResultado.setViewportView(TblRsResultado);
 
+        ChkInactivo.setText("Inactivo");
+
         javax.swing.GroupLayout jPanelRRSSLayout = new javax.swing.GroupLayout(jPanelRRSS);
         jPanelRRSS.setLayout(jPanelRRSSLayout);
         jPanelRRSSLayout.setHorizontalGroup(
             jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 714, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRRSSLayout.createSequentialGroup()
+                .addContainerGap(363, Short.MAX_VALUE)
+                .addComponent(ChkInactivo, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(264, 264, 264))
             .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelRRSSLayout.createSequentialGroup()
                     .addContainerGap()
@@ -212,7 +218,10 @@ public class MenuPpal extends javax.swing.JFrame {
         );
         jPanelRRSSLayout.setVerticalGroup(
             jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 442, Short.MAX_VALUE)
+            .addGroup(jPanelRRSSLayout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(ChkInactivo)
+                .addContainerGap(394, Short.MAX_VALUE))
             .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelRRSSLayout.createSequentialGroup()
                     .addContainerGap()
@@ -694,6 +703,7 @@ public class MenuPpal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JCheckBox CheckBoxVencimientoArticulo;
+    private javax.swing.JCheckBox ChkInactivo;
     public javax.swing.JComboBox<String> ComboBoxArticulo;
     public javax.swing.JScrollPane ScrollTblRsResultado;
     public javax.swing.JTable TableArticulo;
