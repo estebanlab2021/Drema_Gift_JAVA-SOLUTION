@@ -703,7 +703,7 @@ public class MenuPpal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JCheckBox CheckBoxVencimientoArticulo;
-    private javax.swing.JCheckBox ChkInactivo;
+    public javax.swing.JCheckBox ChkInactivo;
     public javax.swing.JComboBox<String> ComboBoxArticulo;
     public javax.swing.JScrollPane ScrollTblRsResultado;
     public javax.swing.JTable TableArticulo;
