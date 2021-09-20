@@ -29,6 +29,7 @@ public class MenuPpal extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanelClientes = new javax.swing.JPanel();
+        jToggleButton1 = new javax.swing.JToggleButton();
         jPanelProveedores = new javax.swing.JPanel();
         jPanelCategoriaArticulos = new javax.swing.JPanel();
         jPanelPacks = new javax.swing.JPanel();
@@ -96,15 +97,29 @@ public class MenuPpal extends javax.swing.JFrame {
         jTabbedPane1.setBackground(new java.awt.Color(203, 204, 255));
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
+        jToggleButton1.setText("btn de prueba");
+        jToggleButton1.setActionCommand("btn de prueba");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelClientesLayout = new javax.swing.GroupLayout(jPanelClientes);
         jPanelClientes.setLayout(jPanelClientesLayout);
         jPanelClientesLayout.setHorizontalGroup(
             jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 690, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelClientesLayout.createSequentialGroup()
+                .addContainerGap(310, Short.MAX_VALUE)
+                .addComponent(jToggleButton1)
+                .addGap(307, 307, 307))
         );
         jPanelClientesLayout.setVerticalGroup(
             jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 372, Short.MAX_VALUE)
+            .addGroup(jPanelClientesLayout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addComponent(jToggleButton1)
+                .addContainerGap(230, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Clientes", jPanelClientes);
@@ -675,6 +690,10 @@ public class MenuPpal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodigoActionPerformed
 
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -766,6 +785,7 @@ public class MenuPpal extends javax.swing.JFrame {
     public javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField5;
     public javax.swing.JTextField jTextFieldCodigo;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JTable jtDatosBnc;
     public javax.swing.JTextField txtBusqudaRS;
     private javax.swing.JTextField txtCodigo;
