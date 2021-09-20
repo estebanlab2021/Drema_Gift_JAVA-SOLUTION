@@ -67,7 +67,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="442" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="372" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -89,7 +89,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="442" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="372" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -111,7 +111,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="442" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="372" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -133,7 +133,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="442" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="372" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -155,7 +155,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="442" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="372" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -173,62 +173,64 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="363" max="32767" attributes="0"/>
-                      <Component id="ChkInactivo" min="-2" pref="87" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="264" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="txtBusqudaRS" min="-2" pref="291" max="-2" attributes="0"/>
+                              <EmptySpace pref="57" max="32767" attributes="0"/>
+                              <Component id="btnBuscar" min="-2" pref="73" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="cbxRRSS" max="32767" attributes="0"/>
+                                  <Component id="txtRRSS" pref="193" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnIngresar" alignment="1" min="-2" pref="73" max="-2" attributes="0"/>
+                                  <Component id="btnOK" alignment="1" min="-2" pref="73" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="ChkInactivo" min="-2" pref="87" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="265" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="ScrollTblRsResultado" alignment="0" min="-2" pref="525" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtBusqudaRS" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="cbxRRSS" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtRRSS" alignment="0" pref="193" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="btnIngresar" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
-                                      <Component id="btnOK" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
-                                      <Component id="btnBuscar" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="ScrollTblRsResultado" min="-2" pref="525" max="-2" attributes="0"/>
+                          <EmptySpace pref="183" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                      <Component id="ChkInactivo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="394" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtRRSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnIngresar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="cbxRRSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnOK" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ChkInactivo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtBusqudaRS" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="229" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtRRSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnIngresar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="cbxRRSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnOK" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtBusqudaRS" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
                           <Component id="ScrollTblRsResultado" min="-2" pref="124" max="-2" attributes="0"/>
-                          <EmptySpace pref="172" max="32767" attributes="0"/>
+                          <EmptySpace pref="93" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -300,11 +302,35 @@
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="4" rowCount="4">
-                        <Column editable="true" title="ID" type="java.lang.Object"/>
-                        <Column editable="true" title="RRS_Nombre" type="java.lang.Object"/>
-                        <Column editable="true" title="CodigoRS" type="java.lang.Object"/>
-                        <Column editable="true" title="Estado" type="java.lang.Object"/>
+                        <Column editable="true" title="ID" type="java.lang.Integer"/>
+                        <Column editable="true" title="RRS_Nombre" type="java.lang.String"/>
+                        <Column editable="true" title="CodigoRS" type="java.lang.String"/>
+                        <Column editable="true" title="Estado" type="java.lang.Integer"/>
                       </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
                     </Property>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
@@ -647,7 +673,7 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="103" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="jSeparator4" min="-2" pref="10" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -800,7 +826,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="442" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="372" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -822,7 +848,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="442" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="372" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -901,7 +927,7 @@
                           <Group type="102" attributes="0">
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="CheckBoxVencimientoArticulo" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="213" max="32767" attributes="0"/>
+                              <EmptySpace pref="132" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>

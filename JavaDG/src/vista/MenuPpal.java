@@ -104,7 +104,7 @@ public class MenuPpal extends javax.swing.JFrame {
         );
         jPanelClientesLayout.setVerticalGroup(
             jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 442, Short.MAX_VALUE)
+            .addGap(0, 372, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Clientes", jPanelClientes);
@@ -117,7 +117,7 @@ public class MenuPpal extends javax.swing.JFrame {
         );
         jPanelProveedoresLayout.setVerticalGroup(
             jPanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 442, Short.MAX_VALUE)
+            .addGap(0, 372, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Proveedores", jPanelProveedores);
@@ -130,7 +130,7 @@ public class MenuPpal extends javax.swing.JFrame {
         );
         jPanelCategoriaArticulosLayout.setVerticalGroup(
             jPanelCategoriaArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 442, Short.MAX_VALUE)
+            .addGap(0, 372, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Categoria Articulos", jPanelCategoriaArticulos);
@@ -143,7 +143,7 @@ public class MenuPpal extends javax.swing.JFrame {
         );
         jPanelPacksLayout.setVerticalGroup(
             jPanelPacksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 442, Short.MAX_VALUE)
+            .addGap(0, 372, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Packs", jPanelPacks);
@@ -156,7 +156,7 @@ public class MenuPpal extends javax.swing.JFrame {
         );
         jPanelCategoriaPacksLayout.setVerticalGroup(
             jPanelCategoriaPacksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 442, Short.MAX_VALUE)
+            .addGap(0, 372, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Categoria Packs", jPanelCategoriaPacks);
@@ -185,7 +185,15 @@ public class MenuPpal extends javax.swing.JFrame {
             new String [] {
                 "ID", "RRS_Nombre", "CodigoRS", "Estado"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         ScrollTblRsResultado.setViewportView(TblRsResultado);
 
         ChkInactivo.setText("Inactivo");
@@ -195,50 +203,51 @@ public class MenuPpal extends javax.swing.JFrame {
         jPanelRRSSLayout.setHorizontalGroup(
             jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelRRSSLayout.createSequentialGroup()
-                .addContainerGap(363, Short.MAX_VALUE)
-                .addComponent(ChkInactivo, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(264, 264, 264))
+                .addGap(28, 28, 28)
+                .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelRRSSLayout.createSequentialGroup()
+                        .addComponent(txtBusqudaRS, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelRRSSLayout.createSequentialGroup()
+                        .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(cbxRRSS, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtRRSS, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnIngresar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnOK, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addComponent(ChkInactivo, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(265, 265, 265))
             .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelRRSSLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(ScrollTblRsResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanelRRSSLayout.createSequentialGroup()
-                            .addGap(22, 22, 22)
-                            .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtBusqudaRS)
-                                .addComponent(cbxRRSS, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtRRSS, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
-                            .addGap(39, 39, 39)
-                            .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnOK, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(ScrollTblRsResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(183, Short.MAX_VALUE)))
         );
         jPanelRRSSLayout.setVerticalGroup(
             jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRRSSLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(ChkInactivo)
-                .addContainerGap(394, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtRRSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnIngresar))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbxRRSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnOK)
+                    .addComponent(ChkInactivo))
+                .addGap(27, 27, 27)
+                .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBuscar)
+                    .addComponent(txtBusqudaRS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(229, Short.MAX_VALUE))
             .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelRRSSLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtRRSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnIngresar))
-                    .addGap(18, 18, 18)
-                    .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cbxRRSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnOK))
-                    .addGap(30, 30, 30)
-                    .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtBusqudaRS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnBuscar))
-                    .addGap(18, 18, 18)
+                    .addGap(155, 155, 155)
                     .addComponent(ScrollTblRsResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(172, Short.MAX_VALUE)))
+                    .addContainerGap(93, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("RRSS", jPanelRRSS);
@@ -456,7 +465,7 @@ public class MenuPpal extends javax.swing.JFrame {
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(103, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -507,7 +516,7 @@ public class MenuPpal extends javax.swing.JFrame {
         );
         jPanelEstados_VentasLayout.setVerticalGroup(
             jPanelEstados_VentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 442, Short.MAX_VALUE)
+            .addGap(0, 372, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Estados_Venta", jPanelEstados_Ventas);
@@ -520,7 +529,7 @@ public class MenuPpal extends javax.swing.JFrame {
         );
         jPanelUsuarioLayout.setVerticalGroup(
             jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 442, Short.MAX_VALUE)
+            .addGap(0, 372, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Usuario", jPanelUsuario);
@@ -610,7 +619,7 @@ public class MenuPpal extends javax.swing.JFrame {
                     .addGroup(jPanelArticulosLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(CheckBoxVencimientoArticulo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelArticulosLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnIngregarArticulo)
