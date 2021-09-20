@@ -34,6 +34,14 @@ public class MenuPpal extends javax.swing.JFrame {
         jPanelPacks = new javax.swing.JPanel();
         jPanelCategoriaPacks = new javax.swing.JPanel();
         jPanelRRSS = new javax.swing.JPanel();
+        txtRRSS = new javax.swing.JTextField();
+        btnIngresar = new javax.swing.JButton();
+        cbxRRSS = new javax.swing.JComboBox<>();
+        btnOK = new javax.swing.JButton();
+        txtBusqudaRS = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
+        ScrollTblRsResultado = new javax.swing.JScrollPane();
+        TblRsResultado = new javax.swing.JTable();
         jPanelComunas = new javax.swing.JPanel();
         jLabelNombre = new javax.swing.JLabel();
         jLabelEstado = new javax.swing.JLabel();
@@ -148,15 +156,76 @@ public class MenuPpal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Categoria Packs", jPanelCategoriaPacks);
 
+        txtRRSS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRRSSActionPerformed(evt);
+            }
+        });
+
+        btnIngresar.setText("Ingresar");
+
+        cbxRRSS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        btnOK.setText("OK");
+
+        btnBuscar.setText("Buscar");
+
+        TblRsResultado.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID", "RRS_Nombre", "CodigoRS", "Estado"
+            }
+        ));
+        ScrollTblRsResultado.setViewportView(TblRsResultado);
+
         javax.swing.GroupLayout jPanelRRSSLayout = new javax.swing.GroupLayout(jPanelRRSS);
         jPanelRRSS.setLayout(jPanelRRSSLayout);
         jPanelRRSSLayout.setHorizontalGroup(
             jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 690, Short.MAX_VALUE)
+            .addGap(0, 714, Short.MAX_VALUE)
+            .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelRRSSLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(ScrollTblRsResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanelRRSSLayout.createSequentialGroup()
+                            .addGap(22, 22, 22)
+                            .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtBusqudaRS)
+                                .addComponent(cbxRRSS, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtRRSS, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
+                            .addGap(39, 39, 39)
+                            .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnOK, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanelRRSSLayout.setVerticalGroup(
             jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 344, Short.MAX_VALUE)
+            .addGap(0, 321, Short.MAX_VALUE)
+            .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelRRSSLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtRRSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnIngresar))
+                    .addGap(18, 18, 18)
+                    .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cbxRRSS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnOK))
+                    .addGap(30, 30, 30)
+                    .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtBusqudaRS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBuscar))
+                    .addGap(18, 18, 18)
+                    .addComponent(ScrollTblRsResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(41, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("RRSS", jPanelRRSS);
@@ -221,13 +290,12 @@ public class MenuPpal extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanelComunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelComunasLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                         .addComponent(jLabelCodigo)
                         .addGap(18, 18, 18)
                         .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(109, 109, 109))
                     .addGroup(jPanelComunasLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addComponent(jButtonIngresar)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addComponent(jSeparator2)
@@ -268,7 +336,7 @@ public class MenuPpal extends javax.swing.JFrame {
                     .addComponent(jButtonOK))
                 .addGap(32, 32, 32)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelComunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonMenuInicio)
                     .addComponent(jButtonCerrarSesion))
@@ -541,6 +609,10 @@ public class MenuPpal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBoxInactivoActionPerformed
 
+    private void txtRRSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRRSSActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRRSSActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -579,8 +651,14 @@ public class MenuPpal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JCheckBox CheckBoxVencimientoArticulo;
     public javax.swing.JComboBox<String> ComboBoxArticulo;
+    public javax.swing.JScrollPane ScrollTblRsResultado;
     public javax.swing.JTable TableArticulo;
+    public javax.swing.JTable TblRsResultado;
+    public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnIngregarArticulo;
+    public javax.swing.JButton btnIngresar;
+    public javax.swing.JButton btnOK;
+    public javax.swing.JComboBox<String> cbxRRSS;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -624,8 +702,10 @@ public class MenuPpal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     public javax.swing.JTextField jTextFieldCodigo;
+    public javax.swing.JTextField txtBusqudaRS;
     public javax.swing.JTextField txtFechaArticulo;
     public javax.swing.JTextField txtNombreArticulo;
+    public javax.swing.JTextField txtRRSS;
     public javax.swing.JTextField txtStockArticulo;
     // End of variables declaration//GEN-END:variables
 }
