@@ -1,14 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package modelo;
 
-/**
- *
- * @author usuario
- */
+
 public class Comunas {
+    private int idcomunas;
+    private int codigo_comunas;
+    private String nombre_comunas;
+    private int com_estado;
+
+    public int getIdcomunas() {
+        return idcomunas;
+    }
+
+    public void setIdcomunas(int idcomunas) {
+        this.idcomunas = idcomunas;
+    }
+
+    public int getCodigo_comunas() {
+        return codigo_comunas;
+    }
+
+    public void setCodigo_comunas(int codigo_comunas) {
+        this.codigo_comunas = codigo_comunas;
+    }
+
+    public String getNombre_comunas() {
+        return nombre_comunas;
+    }
+
+    public void setNombre_comunas(String nombre_comunas) {
+        this.nombre_comunas = nombre_comunas;
+    }
+
+    public int getCom_estado() {
+        return com_estado;
+    }
+
+    public void setCom_estado(int com_estado) {
+        this.com_estado = com_estado;
+    }
+    
+       
     
 }
