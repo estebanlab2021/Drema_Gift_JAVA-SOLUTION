@@ -255,8 +255,6 @@ public class MenuPpal extends javax.swing.JFrame {
 
         jLabel18.setText("Fecha de nac");
 
-        jFormattedTextField1.setText("jFormattedTextField1");
-
         jLabel19.setText("Estado");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));

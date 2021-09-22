@@ -264,9 +264,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jFormattedTextField1"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel19">
               <Properties>
