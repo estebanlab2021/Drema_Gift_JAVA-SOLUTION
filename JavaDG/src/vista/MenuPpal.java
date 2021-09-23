@@ -14,7 +14,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 public class MenuPpal extends javax.swing.JFrame {
-
+/*  */
    
     public MenuPpal() {
         initComponents();
