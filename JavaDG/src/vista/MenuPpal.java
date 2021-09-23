@@ -15,7 +15,8 @@ import javax.swing.JOptionPane;
 
 public class MenuPpal extends javax.swing.JFrame {
 
-    /**
+    /*
+    agregando comentario 
      * Creates new form MenuPpal
      */
     public MenuPpal() {
