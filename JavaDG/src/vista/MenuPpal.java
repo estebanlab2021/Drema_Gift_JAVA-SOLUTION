@@ -159,21 +159,6 @@ public class MenuPpal extends javax.swing.JFrame {
         ScrollTblRsResultado = new javax.swing.JScrollPane();
         TblRsResultado = new javax.swing.JTable();
         ChkInactivo = new javax.swing.JCheckBox();
-        jPanelComunas = new javax.swing.JPanel();
-        jLabelNombre = new javax.swing.JLabel();
-        jLabelEstado = new javax.swing.JLabel();
-        jLabelCodigo = new javax.swing.JLabel();
-        jButtonIngresar = new javax.swing.JButton();
-        jTextFieldCodigo = new javax.swing.JTextField();
-        jComboBoxEstado = new javax.swing.JComboBox<>();
-        jTextField2 = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
-        jCheckBoxInactivo = new javax.swing.JCheckBox();
-        jButtonOK = new javax.swing.JButton();
-        jSeparator2 = new javax.swing.JSeparator();
-        jButtonMenuInicio = new javax.swing.JButton();
-        jButtonCerrarSesion = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         jPanelBancos = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -209,6 +194,25 @@ public class MenuPpal extends javax.swing.JFrame {
         txtCategoriaArt = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
+        jPanelComunas = new javax.swing.JPanel();
+        jLabelNombre = new javax.swing.JLabel();
+        jLabelEstado = new javax.swing.JLabel();
+        jLabelCodigo = new javax.swing.JLabel();
+        jButtonIngresar = new javax.swing.JButton();
+        jTextFieldCodigo = new javax.swing.JTextField();
+        jComboBoxEstado = new javax.swing.JComboBox<>();
+        jTextFieldNombre = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        jCheckBoxInactivo = new javax.swing.JCheckBox();
+        jButtonOK = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
+        jButtonMenuInicio = new javax.swing.JButton();
+        jButtonCerrarSesion = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jButtonBuscar = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jtableComuna = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -330,7 +334,7 @@ public class MenuPpal extends javax.swing.JFrame {
                         .addGroup(jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 139, Short.MAX_VALUE))))
+                        .addGap(0, 289, Short.MAX_VALUE))))
         );
         jPanelClientesLayout.setVerticalGroup(
             jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -369,13 +373,13 @@ public class MenuPpal extends javax.swing.JFrame {
                     .addComponent(jLabel16)
                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGuardar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton3)
                     .addComponent(jButton4)))
@@ -387,11 +391,11 @@ public class MenuPpal extends javax.swing.JFrame {
         jPanelProveedores.setLayout(jPanelProveedoresLayout);
         jPanelProveedoresLayout.setHorizontalGroup(
             jPanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
+            .addGap(0, 880, Short.MAX_VALUE)
         );
         jPanelProveedoresLayout.setVerticalGroup(
             jPanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 441, Short.MAX_VALUE)
+            .addGap(0, 430, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Proveedores", jPanelProveedores);
@@ -443,7 +447,7 @@ public class MenuPpal extends javax.swing.JFrame {
                         .addComponent(jButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCategoriaArticulosLayout.createSequentialGroup()
-                .addGap(0, 43, Short.MAX_VALUE)
+                .addGap(0, 193, Short.MAX_VALUE)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 665, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
@@ -460,7 +464,7 @@ public class MenuPpal extends javax.swing.JFrame {
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(113, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Categoria Articulos", jPanelCategoriaArticulos);
@@ -469,11 +473,11 @@ public class MenuPpal extends javax.swing.JFrame {
         jPanelPacks.setLayout(jPanelPacksLayout);
         jPanelPacksLayout.setHorizontalGroup(
             jPanelPacksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
+            .addGap(0, 880, Short.MAX_VALUE)
         );
         jPanelPacksLayout.setVerticalGroup(
             jPanelPacksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 441, Short.MAX_VALUE)
+            .addGap(0, 430, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Packs", jPanelPacks);
@@ -482,11 +486,11 @@ public class MenuPpal extends javax.swing.JFrame {
         jPanelCategoriaPacks.setLayout(jPanelCategoriaPacksLayout);
         jPanelCategoriaPacksLayout.setHorizontalGroup(
             jPanelCategoriaPacksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
+            .addGap(0, 880, Short.MAX_VALUE)
         );
         jPanelCategoriaPacksLayout.setVerticalGroup(
             jPanelCategoriaPacksLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 441, Short.MAX_VALUE)
+            .addGap(0, 430, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Categoria Packs", jPanelCategoriaPacks);
@@ -537,7 +541,7 @@ public class MenuPpal extends javax.swing.JFrame {
                 .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelRRSSLayout.createSequentialGroup()
                         .addComponent(txtBusqudaRS, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 223, Short.MAX_VALUE)
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelRRSSLayout.createSequentialGroup()
                         .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -554,7 +558,7 @@ public class MenuPpal extends javax.swing.JFrame {
                 .addGroup(jPanelRRSSLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(ScrollTblRsResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(195, Short.MAX_VALUE)))
+                    .addContainerGap(345, Short.MAX_VALUE)))
         );
         jPanelRRSSLayout.setVerticalGroup(
             jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -572,130 +576,15 @@ public class MenuPpal extends javax.swing.JFrame {
                 .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBuscar)
                     .addComponent(txtBusqudaRS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(313, Short.MAX_VALUE))
+                .addContainerGap(302, Short.MAX_VALUE))
             .addGroup(jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelRRSSLayout.createSequentialGroup()
                     .addGap(155, 155, 155)
                     .addComponent(ScrollTblRsResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(162, Short.MAX_VALUE)))
+                    .addContainerGap(151, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("RRSS", jPanelRRSS);
-
-        jPanelComunas.setBackground(new java.awt.Color(153, 204, 255));
-        jPanelComunas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jLabelNombre.setText("Nombre");
-
-        jLabelEstado.setText("Estado");
-
-        jLabelCodigo.setText("Codigo");
-
-        jButtonIngresar.setText("Ingresar");
-
-        jTextFieldCodigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCodigoActionPerformed(evt);
-            }
-        });
-
-        jComboBoxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
-
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-
-        jCheckBoxInactivo.setText("Inactivo");
-        jCheckBoxInactivo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxInactivoActionPerformed(evt);
-            }
-        });
-
-        jButtonOK.setText("OK");
-
-        jButtonMenuInicio.setText("Menu Inicio");
-
-        jButtonCerrarSesion.setText("Cerrar Sesion");
-
-        javax.swing.GroupLayout jPanelComunasLayout = new javax.swing.GroupLayout(jPanelComunas);
-        jPanelComunas.setLayout(jPanelComunasLayout);
-        jPanelComunasLayout.setHorizontalGroup(
-            jPanelComunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1)
-            .addGroup(jPanelComunasLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(jPanelComunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelNombre)
-                    .addComponent(jLabelEstado))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelComunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelComunasLayout.createSequentialGroup()
-                        .addComponent(jCheckBoxInactivo)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonOK))
-                    .addGroup(jPanelComunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jComboBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelComunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelComunasLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
-                        .addComponent(jLabelCodigo)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(109, 109, 109))
-                    .addGroup(jPanelComunasLayout.createSequentialGroup()
-                        .addComponent(jButtonIngresar)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addComponent(jSeparator2)
-            .addGroup(jPanelComunasLayout.createSequentialGroup()
-                .addGroup(jPanelComunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelComunasLayout.createSequentialGroup()
-                        .addGap(187, 187, 187)
-                        .addComponent(jButtonMenuInicio)
-                        .addGap(145, 145, 145)
-                        .addComponent(jButtonCerrarSesion))
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanelComunasLayout.setVerticalGroup(
-            jPanelComunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelComunasLayout.createSequentialGroup()
-                .addGroup(jPanelComunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelComunasLayout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanelComunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelNombre)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelCodigo)
-                            .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
-                        .addComponent(jButtonIngresar))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelComunasLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanelComunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelEstado)
-                            .addComponent(jComboBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelComunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBoxInactivo)
-                    .addComponent(jButtonOK))
-                .addGap(32, 32, 32)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanelComunasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonMenuInicio)
-                    .addComponent(jButtonCerrarSesion))
-                .addGap(22, 22, 22))
-        );
-
-        jTabbedPane1.addTab("Comunas", jPanelComunas);
 
         jPanel12.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -766,7 +655,7 @@ public class MenuPpal extends javax.swing.JFrame {
                                 .addComponent(btnMenuInicio)
                                 .addGap(145, 145, 145)
                                 .addComponent(btnCerrarSesion)))
-                        .addGap(0, 195, Short.MAX_VALUE))
+                        .addGap(0, 345, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jSeparator3))
@@ -842,11 +731,11 @@ public class MenuPpal extends javax.swing.JFrame {
         jPanelEstados_Ventas.setLayout(jPanelEstados_VentasLayout);
         jPanelEstados_VentasLayout.setHorizontalGroup(
             jPanelEstados_VentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
+            .addGap(0, 880, Short.MAX_VALUE)
         );
         jPanelEstados_VentasLayout.setVerticalGroup(
             jPanelEstados_VentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 441, Short.MAX_VALUE)
+            .addGap(0, 430, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Estados_Venta", jPanelEstados_Ventas);
@@ -855,11 +744,11 @@ public class MenuPpal extends javax.swing.JFrame {
         jPanelUsuario.setLayout(jPanelUsuarioLayout);
         jPanelUsuarioLayout.setHorizontalGroup(
             jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 730, Short.MAX_VALUE)
+            .addGap(0, 880, Short.MAX_VALUE)
         );
         jPanelUsuarioLayout.setVerticalGroup(
             jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 441, Short.MAX_VALUE)
+            .addGap(0, 430, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Usuario", jPanelUsuario);
@@ -939,7 +828,7 @@ public class MenuPpal extends javax.swing.JFrame {
                     .addGroup(jPanelArticulosLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
                         .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 634, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(220, Short.MAX_VALUE))
         );
         jPanelArticulosLayout.setVerticalGroup(
             jPanelArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -975,10 +864,95 @@ public class MenuPpal extends javax.swing.JFrame {
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Articulos", jPanelArticulos);
+
+        jPanelComunas.setBackground(new java.awt.Color(153, 204, 255));
+        jPanelComunas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanelComunas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelNombre.setText("Nombre");
+        jPanelComunas.add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+
+        jLabelEstado.setText("Estado");
+        jPanelComunas.add(jLabelEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
+
+        jLabelCodigo.setText("Codigo");
+        jPanelComunas.add(jLabelCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, -1, -1));
+
+        jButtonIngresar.setText("Ingresar");
+        jButtonIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIngresarActionPerformed(evt);
+            }
+        });
+        jPanelComunas.add(jButtonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, -1, -1));
+
+        jTextFieldCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCodigoActionPerformed(evt);
+            }
+        });
+        jPanelComunas.add(jTextFieldCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 170, -1));
+
+        jComboBoxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
+        jPanelComunas.add(jComboBoxEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 170, -1));
+
+        jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNombreActionPerformed(evt);
+            }
+        });
+        jPanelComunas.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 170, -1));
+        jPanelComunas.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 58, 880, 10));
+
+        jCheckBoxInactivo.setText("Inactivo");
+        jCheckBoxInactivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxInactivoActionPerformed(evt);
+            }
+        });
+        jPanelComunas.add(jCheckBoxInactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, -1, -1));
+
+        jButtonOK.setText("OK");
+        jPanelComunas.add(jButtonOK, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, -1, -1));
+        jPanelComunas.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 876, 10));
+
+        jButtonMenuInicio.setText("Menu Inicio");
+        jPanelComunas.add(jButtonMenuInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, -1, -1));
+
+        jButtonCerrarSesion.setText("Cerrar Sesion");
+        jPanelComunas.add(jButtonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 390, -1, -1));
+        jPanelComunas.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 2, 70, 71));
+
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+        jPanelComunas.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 117, -1));
+
+        jButtonBuscar.setText("Buscar");
+        jPanelComunas.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, -1, -1));
+
+        jtableComuna.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Codigo", "Comuna", "Estado"
+            }
+        ));
+        jScrollPane5.setViewportView(jtableComuna);
+
+        jPanelComunas.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 407, 92));
+
+        jTabbedPane1.addTab("Comunas", jPanelComunas);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -988,7 +962,9 @@ public class MenuPpal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
         );
 
         pack();
@@ -998,9 +974,9 @@ public class MenuPpal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboBoxArticuloActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_jTextFieldNombreActionPerformed
 
     private void jTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodigoActionPerformed
         // TODO add your handling code here:
@@ -1079,6 +1055,14 @@ public class MenuPpal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnGuardarActionPerformed
 
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonIngresarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1135,6 +1119,7 @@ public class MenuPpal extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     public javax.swing.JButton jButton3;
     public javax.swing.JButton jButton4;
+    public javax.swing.JButton jButtonBuscar;
     public javax.swing.JButton jButtonCerrarSesion;
     public javax.swing.JButton jButtonIngresar;
     public javax.swing.JButton jButtonMenuInicio;
@@ -1180,6 +1165,7 @@ public class MenuPpal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     public javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -1188,11 +1174,13 @@ public class MenuPpal extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     public javax.swing.JTabbedPane jTabbedPane1;
     public javax.swing.JTable jTable1;
-    public javax.swing.JTextField jTextField2;
     public javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField5;
+    public javax.swing.JTextField jTextField6;
     public javax.swing.JTextField jTextFieldCodigo;
+    public javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTable jtDatosBnc;
+    public javax.swing.JTable jtableComuna;
     public javax.swing.JLabel nombre;
     public javax.swing.JRadioButton rActivo;
     public javax.swing.JRadioButton rInactivo;
