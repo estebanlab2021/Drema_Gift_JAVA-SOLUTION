@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import modelo.Conexion;
 import java.sql.Connection;
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 public class MenuPpal extends javax.swing.JFrame {
 
@@ -116,7 +117,7 @@ public class MenuPpal extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel12 = new javax.swing.JLabel();
+        nombre = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -129,14 +130,15 @@ public class MenuPpal extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         txtDireccion = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        txtFecha = new javax.swing.JFormattedTextField();
         jLabel19 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         btnGuardar = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
         txtRut = new javax.swing.JTextField();
+        txtFechaNacimento = new javax.swing.JTextField();
+        rActivo = new javax.swing.JRadioButton();
+        rInactivo = new javax.swing.JRadioButton();
         jPanelProveedores = new javax.swing.JPanel();
         jPanelCategoriaArticulos = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -229,7 +231,7 @@ public class MenuPpal extends javax.swing.JFrame {
         ));
         jScrollPane4.setViewportView(jTable1);
 
-        jLabel12.setText("Nombre");
+        nombre.setText("Nombre");
 
         jLabel13.setText("Apellido");
 
@@ -257,15 +259,22 @@ public class MenuPpal extends javax.swing.JFrame {
 
         jLabel19.setText("Estado");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("jButton2");
 
         jButton4.setText("jButton2");
 
         jLabel20.setText("Buscar Rut");
+
+        rActivo.setText("Activo");
+
+        rInactivo.setText("Inactivo");
 
         javax.swing.GroupLayout jPanelClientesLayout = new javax.swing.GroupLayout(jPanelClientes);
         jPanelClientes.setLayout(jPanelClientesLayout);
@@ -282,7 +291,7 @@ public class MenuPpal extends javax.swing.JFrame {
                 .addGroup(jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelClientesLayout.createSequentialGroup()
                         .addGroup(jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12)
+                            .addComponent(nombre)
                             .addComponent(jLabel15)
                             .addComponent(jLabel14)
                             .addComponent(jLabel16)
@@ -304,8 +313,11 @@ public class MenuPpal extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtTelefono)
-                                    .addComponent(txtFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtFechaNacimento)
+                                    .addGroup(jPanelClientesLayout.createSequentialGroup()
+                                        .addComponent(rActivo)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(rInactivo))))
                             .addComponent(btnGuardar))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelClientesLayout.createSequentialGroup()
@@ -327,7 +339,7 @@ public class MenuPpal extends javax.swing.JFrame {
                 .addComponent(jLabel11)
                 .addGap(18, 18, 18)
                 .addGroup(jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
+                    .addComponent(nombre)
                     .addComponent(txtNombresClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17)
                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -336,15 +348,19 @@ public class MenuPpal extends javax.swing.JFrame {
                     .addComponent(jLabel13)
                     .addComponent(txtApellidosClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18)
-                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel14)
-                    .addGroup(jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel19)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(8, 8, 8)
+                    .addComponent(txtFechaNacimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelClientesLayout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addGroup(jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel19)
+                            .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rActivo)
+                            .addComponent(rInactivo)))
+                    .addGroup(jPanelClientesLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel14)))
+                .addGap(2, 2, 2)
                 .addGroup(jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(txtMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -353,7 +369,7 @@ public class MenuPpal extends javax.swing.JFrame {
                     .addComponent(jLabel16)
                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGuardar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20))
@@ -1018,6 +1034,51 @@ public class MenuPpal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidosClientesActionPerformed
 
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        String cli_nombre = txtNombresClientes.getText();
+        String cli_apellido = txtApellidosClientes.getText();
+        String RUT = txtRut.getText();
+        String cli_direccion = txtDireccion.getText();
+        String cli_mail = txtMail.getText();
+        int cli_telefono = Integer.parseInt(txtTelefono.getText());
+        String fecha_nac = txtFechaNacimento.getText();
+        String estado;
+        
+        if(rActivo.isSelected() == true){
+         estado = "A";
+        }else if(rInactivo.isSelected() == true){
+         estado = "I";
+        }else{
+         estado = "A";
+        }
+        
+        
+        try{
+            Conexion conn = new Conexion();
+            Connection con = conn.getConexion();
+            
+            PreparedStatement ps = con.prepareStatement("INSERT INTO cliente (cli_nombre,cli_apellido,RUT,cli_direccion,cli_mail,cli_telefono,fecha_nac,estado) VALUES(?,?,?,?,?,?,?,?)");
+            ps.setString(1,cli_nombre);
+            ps.setString(2,cli_apellido);
+            ps.setString(3,RUT);
+            ps.setString(4,cli_direccion);
+            ps.setString(5,cli_mail);
+            ps.setInt(6,cli_telefono);
+            ps.setString(7,fecha_nac);
+            ps.setString(8,estado);
+           // ps.setInt(9,1);
+            ps.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null,"Registro guardado");
+       
+            
+        }catch(SQLException e){
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
+        
+        
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1072,29 +1133,27 @@ public class MenuPpal extends javax.swing.JFrame {
     public javax.swing.JButton btnOK;
     public javax.swing.JComboBox<String> cbxRRSS;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    public javax.swing.JButton jButton3;
+    public javax.swing.JButton jButton4;
     public javax.swing.JButton jButtonCerrarSesion;
     public javax.swing.JButton jButtonIngresar;
     public javax.swing.JButton jButtonMenuInicio;
     public javax.swing.JButton jButtonOK;
     private javax.swing.JComboBox<String> jCBoxEstado;
     public javax.swing.JCheckBox jCheckBoxInactivo;
-    private javax.swing.JComboBox<String> jComboBox1;
     public javax.swing.JComboBox<String> jComboBoxEstado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
+    public javax.swing.JLabel jLabel11;
+    public javax.swing.JLabel jLabel13;
+    public javax.swing.JLabel jLabel14;
+    public javax.swing.JLabel jLabel15;
+    public javax.swing.JLabel jLabel16;
+    public javax.swing.JLabel jLabel17;
+    public javax.swing.JLabel jLabel18;
+    public javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
+    public javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1128,20 +1187,23 @@ public class MenuPpal extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     public javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jTable1;
     public javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    public javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField5;
     public javax.swing.JTextField jTextFieldCodigo;
     private javax.swing.JTable jtDatosBnc;
+    public javax.swing.JLabel nombre;
+    public javax.swing.JRadioButton rActivo;
+    public javax.swing.JRadioButton rInactivo;
     public javax.swing.JTextField txtApellidosClientes;
     public javax.swing.JTextField txtBusqudaRS;
     public javax.swing.JTextField txtCategoriaArt;
     private javax.swing.JTextField txtCodigo;
     public javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtEntidadBancaria;
-    public javax.swing.JFormattedTextField txtFecha;
+    public javax.swing.JTextField txtEntidadBancaria;
     public javax.swing.JTextField txtFechaArticulo;
+    public javax.swing.JTextField txtFechaNacimento;
     public javax.swing.JTextField txtMail;
     public javax.swing.JTextField txtNombreArticulo;
     private javax.swing.JTextField txtNombreCategoriaArt;
