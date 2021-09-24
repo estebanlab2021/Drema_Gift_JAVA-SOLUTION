@@ -4,7 +4,7 @@ package modelo;
 
 public class Comunas {
     private int idcomunas;
-    private int codigo_comunas;
+    private String codigo_comunas;
     private String nombre_comunas;
     private int com_estado;
 
@@ -16,11 +16,11 @@ public class Comunas {
         this.idcomunas = idcomunas;
     }
 
-    public int getCodigo_comunas() {
+    public String getCodigo_comunas() {
         return codigo_comunas;
     }
 
-    public void setCodigo_comunas(int codigo_comunas) {
+    public void setCodigo_comunas(String codigo_comunas) {
         this.codigo_comunas = codigo_comunas;
     }
 
@@ -39,7 +39,6 @@ public class Comunas {
     public void setCom_estado(int com_estado) {
         this.com_estado = com_estado;
     }
-    
-       
-    
+
+      
 }

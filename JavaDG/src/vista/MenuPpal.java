@@ -99,6 +99,47 @@ public class MenuPpal extends javax.swing.JFrame {
             System.err.println(ex.toString());
         }
         
+        
+        //Tabla de Comunas
+        try{    
+            DefaultTableModel modelo6 = new DefaultTableModel();
+            
+            TablaComuna.setModel(modelo6);
+            
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            
+            Conexion conn = new Conexion();
+            Connection con = conn.getConexion();
+            
+            String sql = "SELECT * FROM comunas";
+            
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int CantidadColumnas = rsMd.getColumnCount();
+            
+            modelo6.addColumn("Codigo");
+            modelo6.addColumn("Cod_Comunas");
+            modelo6.addColumn("Nombre");
+            modelo6.addColumn("Estado");
+                        
+            while(rs.next()){
+                
+                Object[] filas = new Object[CantidadColumnas];
+                
+                for(int i=0; i < CantidadColumnas; i++){
+                    filas[i] = rs.getObject(i + 1);
+                }
+                modelo6.addRow(filas); 
+            }
+        
+        
+        }catch(SQLException ex){
+            System.err.println(ex.toString());
+        }
+        
     }
 
     /**
@@ -110,6 +151,7 @@ public class MenuPpal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanelClientes = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -196,10 +238,9 @@ public class MenuPpal extends javax.swing.JFrame {
         jLabelNombre = new javax.swing.JLabel();
         jLabelEstado = new javax.swing.JLabel();
         jLabelCodigo = new javax.swing.JLabel();
-        jButtonIngresar = new javax.swing.JButton();
-        jTextFieldCodigo = new javax.swing.JTextField();
-        jComboBoxEstado = new javax.swing.JComboBox<>();
-        jTextFieldNombre = new javax.swing.JTextField();
+        btnIngresarComuna = new javax.swing.JButton();
+        txtCodigoComuna = new javax.swing.JTextField();
+        txtNombreComuna = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jCheckBoxInactivo = new javax.swing.JCheckBox();
         jButtonOK = new javax.swing.JButton();
@@ -210,7 +251,11 @@ public class MenuPpal extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jButtonBuscar = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jtableComuna = new javax.swing.JTable();
+        TablaComuna = new javax.swing.JTable();
+        txtEstadoComuna = new javax.swing.JTextField();
+        button1 = new java.awt.Button();
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -877,33 +922,30 @@ public class MenuPpal extends javax.swing.JFrame {
         jLabelEstado.setText("Estado");
         jPanelComunas.add(jLabelEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
 
-        jLabelCodigo.setText("Codigo");
+        jLabelCodigo.setText("Codigo Comuna");
         jPanelComunas.add(jLabelCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, -1, -1));
 
-        jButtonIngresar.setText("Ingresar");
-        jButtonIngresar.addActionListener(new java.awt.event.ActionListener() {
+        btnIngresarComuna.setText("Ingresar");
+        btnIngresarComuna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonIngresarActionPerformed(evt);
+                btnIngresarComunaActionPerformed(evt);
             }
         });
-        jPanelComunas.add(jButtonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, -1, -1));
+        jPanelComunas.add(btnIngresarComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, -1, -1));
 
-        jTextFieldCodigo.addActionListener(new java.awt.event.ActionListener() {
+        txtCodigoComuna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCodigoActionPerformed(evt);
+                txtCodigoComunaActionPerformed(evt);
             }
         });
-        jPanelComunas.add(jTextFieldCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 170, -1));
+        jPanelComunas.add(txtCodigoComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, 170, -1));
 
-        jComboBoxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Activo", "Inactivo" }));
-        jPanelComunas.add(jComboBoxEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 170, -1));
-
-        jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreComuna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNombreActionPerformed(evt);
+                txtNombreComunaActionPerformed(evt);
             }
         });
-        jPanelComunas.add(jTextFieldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 170, -1));
+        jPanelComunas.add(txtNombreComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 170, -1));
         jPanelComunas.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 58, 880, 10));
 
         jCheckBoxInactivo.setText("Inactivo");
@@ -935,22 +977,26 @@ public class MenuPpal extends javax.swing.JFrame {
         jButtonBuscar.setText("Buscar");
         jPanelComunas.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, -1, -1));
 
-        jtableComuna.setModel(new javax.swing.table.DefaultTableModel(
+        TablaComuna.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Codigo", "Comuna", "Estado"
+                "Codigo", "Cod_Comuna", "Comuna", "Estado"
             }
         ));
-        jScrollPane5.setViewportView(jtableComuna);
+        jScrollPane5.setViewportView(TablaComuna);
 
         jPanelComunas.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 407, 92));
+        jPanelComunas.add(txtEstadoComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 170, -1));
 
         jTabbedPane1.addTab("Comunas", jPanelComunas);
+
+        button1.setLabel("button1");
+        jTabbedPane1.addTab("tab12", button1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -972,13 +1018,13 @@ public class MenuPpal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboBoxArticuloActionPerformed
 
-    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
+    private void txtNombreComunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreComunaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNombreActionPerformed
+    }//GEN-LAST:event_txtNombreComunaActionPerformed
 
-    private void jTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodigoActionPerformed
+    private void txtCodigoComunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoComunaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCodigoActionPerformed
+    }//GEN-LAST:event_txtCodigoComunaActionPerformed
 
     private void jCheckBoxInactivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxInactivoActionPerformed
         // TODO add your handling code here:
@@ -1057,9 +1103,9 @@ public class MenuPpal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
 
-    private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
+    private void btnIngresarComunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarComunaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonIngresarActionPerformed
+    }//GEN-LAST:event_btnIngresarComunaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1101,6 +1147,7 @@ public class MenuPpal extends javax.swing.JFrame {
     public javax.swing.JCheckBox ChkInactivo;
     public javax.swing.JComboBox<String> ComboBoxArticulo;
     public javax.swing.JScrollPane ScrollTblRsResultado;
+    public javax.swing.JTable TablaComuna;
     public javax.swing.JTable TableArticulo;
     public javax.swing.JTable TableCategoriaArt;
     public javax.swing.JTable TblRsResultado;
@@ -1111,20 +1158,20 @@ public class MenuPpal extends javax.swing.JFrame {
     public javax.swing.JButton btnIngregarArticulo;
     public javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnIngresar1;
+    public javax.swing.JButton btnIngresarComuna;
     public javax.swing.JButton btnMenuInicio;
     public javax.swing.JButton btnOK;
+    private java.awt.Button button1;
     public javax.swing.JComboBox<String> cbxRRSS;
     private javax.swing.JButton jButton1;
     public javax.swing.JButton jButton3;
     public javax.swing.JButton jButton4;
     public javax.swing.JButton jButtonBuscar;
     public javax.swing.JButton jButtonCerrarSesion;
-    public javax.swing.JButton jButtonIngresar;
     public javax.swing.JButton jButtonMenuInicio;
     public javax.swing.JButton jButtonOK;
     private javax.swing.JComboBox<String> jCBoxEstado;
     public javax.swing.JCheckBox jCheckBoxInactivo;
-    public javax.swing.JComboBox<String> jComboBoxEstado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     public javax.swing.JLabel jLabel11;
@@ -1147,6 +1194,7 @@ public class MenuPpal extends javax.swing.JFrame {
     public javax.swing.JLabel jLabelCodigo;
     public javax.swing.JLabel jLabelEstado;
     public javax.swing.JLabel jLabelNombre;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanelArticulos;
     private javax.swing.JPanel jPanelBancos;
@@ -1175,10 +1223,7 @@ public class MenuPpal extends javax.swing.JFrame {
     public javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField5;
     public javax.swing.JTextField jTextField6;
-    public javax.swing.JTextField jTextFieldCodigo;
-    public javax.swing.JTextField jTextFieldNombre;
     private javax.swing.JTable jtDatosBnc;
-    public javax.swing.JTable jtableComuna;
     public javax.swing.JLabel nombre;
     public javax.swing.JRadioButton rActivo;
     public javax.swing.JRadioButton rInactivo;
@@ -1186,13 +1231,16 @@ public class MenuPpal extends javax.swing.JFrame {
     public javax.swing.JTextField txtBusqudaRS;
     public javax.swing.JTextField txtCategoriaArt;
     private javax.swing.JTextField txtCodigo;
+    public javax.swing.JTextField txtCodigoComuna;
     public javax.swing.JTextField txtDireccion;
     public javax.swing.JTextField txtEntidadBancaria;
+    public javax.swing.JTextField txtEstadoComuna;
     public javax.swing.JTextField txtFechaArticulo;
     public javax.swing.JTextField txtFechaNacimento;
     public javax.swing.JTextField txtMail;
     public javax.swing.JTextField txtNombreArticulo;
     private javax.swing.JTextField txtNombreCategoriaArt;
+    public javax.swing.JTextField txtNombreComuna;
     public javax.swing.JTextField txtNombresClientes;
     public javax.swing.JTextField txtRRSS;
     public javax.swing.JTextField txtRut;
