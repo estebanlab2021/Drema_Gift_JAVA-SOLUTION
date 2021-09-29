@@ -17,22 +17,20 @@ public class JavaDG {
         
         Articulos mod = new Articulos();
         ConsultasArticulos modC = new ConsultasArticulos();
+        
+        Comunas mod6 = new Comunas();
+        ConsultasComunas modC6 = new ConsultasComunas();
+        
         MenuPpal vistaA = new MenuPpal();
         
         CtrlArticulo ctrl = new CtrlArticulo(mod, modC, vistaA);
         ctrl.iniciar();
-        vistaA.setVisible(true);
         
-        //**** Jessica
-        
-        Comunas mod6 = new Comunas();
-        ConsultasComunas modC6 = new ConsultasComunas();
-        MenuPpal vistaA6 = new MenuPpal();
-        
-        CtrlComunas ctrl6 = new CtrlComunas(mod6, modC6, vistaA6);
+        CtrlComunas ctrl6 = new CtrlComunas(mod6, modC6, vistaA);
         ctrl6.iniciar();
-        vistaA6.setVisible(true);
         
+        vistaA.setVisible(true);
+                      
     }
     
 }
