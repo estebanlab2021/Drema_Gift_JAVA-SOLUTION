@@ -598,6 +598,8 @@ public class MenuPpal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Categoria Packs", jPanelCategoriaPacks);
 
+        jPanelRRSS.setBackground(new java.awt.Color(153, 204, 255));
+
         txtRRSS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRRSSActionPerformed(evt);
