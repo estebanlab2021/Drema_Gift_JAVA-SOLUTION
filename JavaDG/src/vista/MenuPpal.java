@@ -19,6 +19,7 @@ public class MenuPpal extends javax.swing.JFrame {
     public MenuPpal() {
         initComponents();
         MostrarComuna();
+        txtIdComunas.setVisible(false);
                 
         //Tabla de categoria Articulos
         try{    
@@ -314,6 +315,7 @@ public class MenuPpal extends javax.swing.JFrame {
         rbtnActivoComuna = new javax.swing.JRadioButton();
         rbtnInactivoComuna = new javax.swing.JRadioButton();
         txtIdComunas = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -997,7 +999,7 @@ public class MenuPpal extends javax.swing.JFrame {
                 txtCodigoComunaActionPerformed(evt);
             }
         });
-        jPanelComunas.add(txtCodigoComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 50, -1));
+        jPanelComunas.add(txtCodigoComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 50, -1));
 
         txtNombreComuna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1063,7 +1065,16 @@ public class MenuPpal extends javax.swing.JFrame {
         btnGroupComunas.add(rbtnInactivoComuna);
         rbtnInactivoComuna.setText("Inactivo");
         jPanelComunas.add(rbtnInactivoComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, -1, -1));
+
+        txtIdComunas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdComunasActionPerformed(evt);
+            }
+        });
         jPanelComunas.add(txtIdComunas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 60, -1));
+
+        jLabel12.setText("Estado");
+        jPanelComunas.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 60, 20));
 
         jTabbedPane1.addTab("Comunas", jPanelComunas);
 
@@ -1180,6 +1191,10 @@ public class MenuPpal extends javax.swing.JFrame {
         llamarDatosComunas();
     }//GEN-LAST:event_TablaComunaMouseClicked
 
+    private void txtIdComunasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdComunasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdComunasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1248,6 +1263,7 @@ public class MenuPpal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     public javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     public javax.swing.JLabel jLabel13;
     public javax.swing.JLabel jLabel14;
     public javax.swing.JLabel jLabel15;
