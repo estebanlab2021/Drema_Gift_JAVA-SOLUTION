@@ -1,5 +1,7 @@
 package controlador;
 
+//*** @author Jessica *********
+ 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -10,19 +12,18 @@ import modelo.Comunas;
 import modelo.ConsultasComunas;
 import vista.MenuPpal;
 
-
 public class CtrlComunas implements ActionListener{
     
     //Llamamos a las clases que hemos creado
-    private Comunas mod6;
-    private ConsultasComunas modC6;
+    private Comunas mod1;
+    private ConsultasComunas modC1;
     private MenuPpal vistaA;
     
     
-    public CtrlComunas(Comunas mod6, ConsultasComunas modC6, MenuPpal vistaA){
+    public CtrlComunas(Comunas mod1, ConsultasComunas modC1, MenuPpal vistaA){
         
-        this.mod6 = mod6;
-        this.modC6 = modC6;
+        this.mod1 = mod1;
+        this.modC1 = modC1;
         this.vistaA = vistaA;
         this.vistaA.btnIngresarComuna.addActionListener(this);
         this.vistaA.btnModComuna.addActionListener(this);
@@ -30,7 +31,7 @@ public class CtrlComunas implements ActionListener{
         this.vistaA.btnBuscarComuna.addActionListener(this);
         this.vistaA.rbtnInactivoComuna.addActionListener(this);
         this.vistaA.rbtnActivoComuna .addActionListener(this);
-                 
+        String estadobtn = null;
     }
     
     
@@ -43,16 +44,17 @@ public class CtrlComunas implements ActionListener{
     public void actionPerformed(ActionEvent e){
         
         if(e.getSource() == vistaA.btnIngresarComuna){
-            mod6.setCodigo_comunas(vistaA.txtCodigoComuna.getText());
-            mod6.setNombre_comunas(vistaA.txtNombreComuna.getText());
-            //mod6.setCom_estado(Integer.parseInt (vistaA.txtEstadoComuna.getText()));
-            mod6.setCom_estado(Integer.parseInt(vistaA.guardarRadioBotonComunas()));
+            mod1.setCodigo_comunas(vistaA.txtCodigoComuna.getText());
+            mod1.setNombre_comunas(vistaA.txtNombreComuna.getText());
+            mod1.setCom_estado(Integer.parseInt(vistaA.guardarRadioBotonComunas()));
             
             try {
-                if(modC6.registrar(mod6)){
+                if(modC1.registrar(mod1)){
                     JOptionPane.showMessageDialog(null, "Registro Guardado");
+                    limpiar();
                 }else {
                     JOptionPane.showMessageDialog(null, "Error al Guardar");
+                    limpiar();
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(CtrlComunas.class.getName()).log(Level.SEVERE, null, ex);
@@ -61,13 +63,13 @@ public class CtrlComunas implements ActionListener{
         }
         
         if(e.getSource() == vistaA.btnModComuna){
-            mod6.setIdcomunas(Integer.parseInt(vistaA.txtIdComunas.getText()));
-            mod6.setCodigo_comunas(vistaA.txtCodigoComuna.getText());
-            mod6.setNombre_comunas(vistaA.txtNombreComuna.getText());
-            mod6.setCom_estado(Integer.parseInt(vistaA.guardarRadioBotonComunas()));
+            mod1.setIdcomunas(Integer.parseInt(vistaA.txtIdComunas.getText()));
+            mod1.setCodigo_comunas(vistaA.txtCodigoComuna.getText());
+            mod1.setNombre_comunas(vistaA.txtNombreComuna.getText());
+            mod1.setCom_estado(Integer.parseInt(vistaA.guardarRadioBotonComunas()));
             
             try {
-                if(modC6.modificar(mod6)){
+                if(modC1.modificar(mod1)){
                     JOptionPane.showMessageDialog(null, "Registro Modificado");
                     //System.out.println(modC1.modificar());
                     //limpiar();
@@ -81,18 +83,17 @@ public class CtrlComunas implements ActionListener{
         }
         
         if(e.getSource() == vistaA.btnBuscarComuna){
-            mod6.setIdcomunas(Integer.parseInt(vistaA.txtBuscarComunas.getText()));
+            mod1.setIdcomunas(Integer.parseInt(vistaA.txtBusqudaRS.getText()));
             
             try {
-                if(modC6.BuscarCOMUN(mod6)){
-                    vistaA.txtNombreComuna.setText(mod6.getNombre_comunas());
+                if(modC1.buscarComun(mod1)){
+                    vistaA.txtNombreComuna.setText(mod1.getNombre_comunas());
 
                 }else {
                     JOptionPane.showMessageDialog(null, "No se encontró el registro");
                     limpiar();
                 }
             } catch (SQLException ex) {
-                
                 Logger.getLogger(CtrlComunas.class.getName()).log(Level.SEVERE, null, ex);
             }
         }

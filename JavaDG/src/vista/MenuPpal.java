@@ -170,6 +170,42 @@ public class MenuPpal extends javax.swing.JFrame {
         return valor;
     }
     
+    
+    //**** Llamar Datos Comunas ********
+    public void llamarDatosComunas(){
+        try{
+            int fila = TablaComuna.getSelectedRow();
+            int ID = (int) TablaComuna.getValueAt(fila, 0);
+            
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            
+            Conexion conn = new Conexion();
+            Connection con = conn.getConexion();
+            
+            String sql = "SELECT * FROM comunas WHERE (idcomunas = ?)";
+            
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, ID);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                
+                txtIdComunas.setText(String.valueOf(rs.getString("idcomunas")));
+                txtNombreComuna.setText(rs.getString("nombre_comunas"));
+                txtCodigoComuna.setText(rs.getString("codigo_comunas"));
+                if(rs.getString("com_estado").equals("1")){
+                    rbtnActivoComuna.setSelected(true);
+                }else if(rs.getString("com_estado").equals("0")){
+                    rbtnInactivoComuna.setSelected(true);
+                }
+            }
+            
+        }catch(SQLException ex){
+            System.err.println(ex.toString());
+        }
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -260,14 +296,11 @@ public class MenuPpal extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
         jPanelComunas = new javax.swing.JPanel();
         jLabelNombre = new javax.swing.JLabel();
-        jLabelEstado = new javax.swing.JLabel();
         jLabelCodigo = new javax.swing.JLabel();
         btnIngresarComuna = new javax.swing.JButton();
         txtCodigoComuna = new javax.swing.JTextField();
         txtNombreComuna = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        jCheckBoxInactivo = new javax.swing.JCheckBox();
-        jButtonOK = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jButtonMenuInicio = new javax.swing.JButton();
         jButtonCerrarSesion = new javax.swing.JButton();
@@ -276,7 +309,6 @@ public class MenuPpal extends javax.swing.JFrame {
         btnBuscarComuna = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         TablaComuna = new javax.swing.JTable();
-        txtEstadoComuna = new javax.swing.JTextField();
         btnModComuna = new javax.swing.JButton();
         btnLimpiarComuna = new javax.swing.JButton();
         rbtnActivoComuna = new javax.swing.JRadioButton();
@@ -629,7 +661,7 @@ public class MenuPpal extends javax.swing.JFrame {
                 .addGroup(jPanelRRSSLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(ScrollTblRsResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(349, Short.MAX_VALUE)))
+                    .addContainerGap(353, Short.MAX_VALUE)))
         );
         jPanelRRSSLayout.setVerticalGroup(
             jPanelRRSSLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -945,13 +977,10 @@ public class MenuPpal extends javax.swing.JFrame {
         jPanelComunas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelNombre.setText("Nombre");
-        jPanelComunas.add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 90, -1, -1));
-
-        jLabelEstado.setText("Estado");
-        jPanelComunas.add(jLabelEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 129, -1, -1));
+        jPanelComunas.add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
         jLabelCodigo.setText("Codigo Comuna");
-        jPanelComunas.add(jLabelCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, -1, -1));
+        jPanelComunas.add(jLabelCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
 
         btnIngresarComuna.setText("Ingresar");
         btnIngresarComuna.addActionListener(new java.awt.event.ActionListener() {
@@ -959,33 +988,22 @@ public class MenuPpal extends javax.swing.JFrame {
                 btnIngresarComunaActionPerformed(evt);
             }
         });
-        jPanelComunas.add(btnIngresarComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, -1, -1));
+        jPanelComunas.add(btnIngresarComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, 80, -1));
 
         txtCodigoComuna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCodigoComunaActionPerformed(evt);
             }
         });
-        jPanelComunas.add(txtCodigoComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 40, -1));
+        jPanelComunas.add(txtCodigoComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 50, -1));
 
         txtNombreComuna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreComunaActionPerformed(evt);
             }
         });
-        jPanelComunas.add(txtNombreComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 90, 170, -1));
+        jPanelComunas.add(txtNombreComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 170, -1));
         jPanelComunas.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 58, 880, 10));
-
-        jCheckBoxInactivo.setText("Inactivo");
-        jCheckBoxInactivo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxInactivoActionPerformed(evt);
-            }
-        });
-        jPanelComunas.add(jCheckBoxInactivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 183, -1, -1));
-
-        jButtonOK.setText("OK");
-        jPanelComunas.add(jButtonOK, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, -1, -1));
         jPanelComunas.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 223, 876, 10));
 
         jButtonMenuInicio.setText("Menu Inicio");
@@ -1016,25 +1034,34 @@ public class MenuPpal extends javax.swing.JFrame {
                 "Codigo", "Cod_Comuna", "Comuna", "Estado"
             }
         ));
+        TablaComuna.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaComunaMouseClicked(evt);
+            }
+        });
         jScrollPane5.setViewportView(TablaComuna);
 
         jPanelComunas.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 283, 407, 92));
-        jPanelComunas.add(txtEstadoComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 129, 40, -1));
 
         btnModComuna.setText("Modificar");
-        jPanelComunas.add(btnModComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, -1, -1));
+        btnModComuna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModComunaActionPerformed(evt);
+            }
+        });
+        jPanelComunas.add(btnModComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, 80, -1));
 
         btnLimpiarComuna.setText("Limpiar");
-        jPanelComunas.add(btnLimpiarComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 180, -1, -1));
+        jPanelComunas.add(btnLimpiarComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, 80, -1));
 
         btnGroupComunas.add(rbtnActivoComuna);
         rbtnActivoComuna.setText("Activo");
-        jPanelComunas.add(rbtnActivoComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, -1, -1));
+        jPanelComunas.add(rbtnActivoComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 60, -1));
 
         btnGroupComunas.add(rbtnInactivoComuna);
         rbtnInactivoComuna.setText("Inactivo");
-        jPanelComunas.add(rbtnInactivoComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, -1, -1));
-        jPanelComunas.add(txtIdComunas, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 60, -1));
+        jPanelComunas.add(rbtnInactivoComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, -1, -1));
+        jPanelComunas.add(txtIdComunas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 60, -1));
 
         jTabbedPane1.addTab("Comunas", jPanelComunas);
 
@@ -1057,10 +1084,6 @@ public class MenuPpal extends javax.swing.JFrame {
     private void txtBuscarComunasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarComunasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarComunasActionPerformed
-
-    private void jCheckBoxInactivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxInactivoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBoxInactivoActionPerformed
 
     private void txtNombreComunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreComunaActionPerformed
         // TODO add your handling code here:
@@ -1145,6 +1168,16 @@ public class MenuPpal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombresClientesActionPerformed
 
+    private void btnModComunaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModComunaActionPerformed
+        // TODO add your handling code here:
+        MostrarComuna();
+    }//GEN-LAST:event_btnModComunaActionPerformed
+
+    private void TablaComunaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaComunaMouseClicked
+        // TODO add your handling code here:
+        llamarDatosComunas();
+    }//GEN-LAST:event_TablaComunaMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1209,9 +1242,7 @@ public class MenuPpal extends javax.swing.JFrame {
     public javax.swing.JButton jButton4;
     public javax.swing.JButton jButtonCerrarSesion;
     public javax.swing.JButton jButtonMenuInicio;
-    public javax.swing.JButton jButtonOK;
     private javax.swing.JComboBox<String> jCBoxEstado;
-    public javax.swing.JCheckBox jCheckBoxInactivo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     public javax.swing.JLabel jLabel11;
@@ -1232,7 +1263,6 @@ public class MenuPpal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     public javax.swing.JLabel jLabelCodigo;
-    public javax.swing.JLabel jLabelEstado;
     public javax.swing.JLabel jLabelNombre;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel12;
@@ -1276,7 +1306,6 @@ public class MenuPpal extends javax.swing.JFrame {
     public javax.swing.JTextField txtCodigoComuna;
     public javax.swing.JTextField txtDireccion;
     public javax.swing.JTextField txtEntidadBancaria;
-    public javax.swing.JTextField txtEstadoComuna;
     public javax.swing.JTextField txtFechaArticulo;
     public javax.swing.JTextField txtFechaNacimento;
     public javax.swing.JTextField txtIdComunas;

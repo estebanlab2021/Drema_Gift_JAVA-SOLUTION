@@ -46,7 +46,7 @@ public class ConsultasComunas extends Conexion{
     PreparedStatement ps = null;
         Connection con = (Connection) getConexion();
         
-        String sql = "UPDATE comunas SET codigo_comunas=?, nombre_comunas=?, com_estado=? WHERE (idcomuna=?)";
+        String sql = "UPDATE comunas SET codigo_comunas=?, nombre_comunas=?, com_estado=? WHERE (idcomunas=?)";
         
         try{
             ps = con.prepareStatement(sql);
@@ -70,7 +70,7 @@ public class ConsultasComunas extends Conexion{
     }
     //* Buscar Comuna ***
 
-    public boolean buscarCOMUN(Comunas comu) throws SQLException{
+    public boolean buscarComun(Comunas comu) throws SQLException{
         
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -100,15 +100,9 @@ public class ConsultasComunas extends Conexion{
             }catch(SQLException e){
                 System.err.println(e);
             }
+            
         }
-   
-    }    
-
-    public boolean BuscarCOMUN(Comunas mod6) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-        
     
     }
     
-    
+}
