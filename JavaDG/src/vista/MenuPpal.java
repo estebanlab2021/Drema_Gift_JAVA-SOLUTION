@@ -14,13 +14,13 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 public class MenuPpal extends javax.swing.JFrame {
-/*  */
    
     public MenuPpal() {
         initComponents();
         MostrarComuna();
+        MostrarBancos();
+        txtIdBanco.setVisible(false);     
         txtIdComunas.setVisible(false);
-                
         //Tabla de categoria Articulos
         try{    
             DefaultTableModel modelo1 = new DefaultTableModel();
@@ -205,7 +205,101 @@ public class MenuPpal extends javax.swing.JFrame {
         }catch(SQLException ex){
             System.err.println(ex.toString());
         }
+        
     }
+        
+         private void MostrarBancos(){
+        
+    //*Tabla de Bancos
+    try{    
+            DefaultTableModel modelo8 = new DefaultTableModel();
+            
+            tableBanco.setModel(modelo8);
+            
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            
+            Conexion conn = new Conexion();
+            Connection con = conn.getConexion();
+            
+            String sql = "SELECT * FROM banco";
+            
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            ResultSetMetaData rsMd = rs.getMetaData();
+            int CantidadColumnas = rsMd.getColumnCount();
+            
+            modelo8.addColumn("Id");
+            modelo8.addColumn("Codigo");
+            modelo8.addColumn("Banco");
+            modelo8.addColumn("Estado");
+                        
+            while(rs.next()){
+                
+                Object[] filas = new Object[CantidadColumnas];
+                
+                for(int i=0; i < CantidadColumnas; i++){
+                    filas[i] = rs.getObject(i + 1);
+                }
+                modelo8.addRow(filas); 
+            }
+        
+        
+        }catch(SQLException ex){
+            System.err.println(ex.toString());
+        }
+    }
+         
+      // * Radio Button Bancos ***
+    public String guardarRadioButtonBanco(){
+      
+        String valor="1";
+        if(rbtnActivarBanco.isSelected()==true){
+           valor= "1";   
+        }
+        else if (rbtnInactvarBanco.isSelected()==true){
+            valor = "0";
+        }
+    return valor;
+    } 
+        //**** Llamar Datos Bancos ********
+    public void llamarDatosBancos(){
+        try{
+            int fila = tableBanco.getSelectedRow();
+            int ID = (int) tableBanco.getValueAt(fila, 0);
+            
+            PreparedStatement ps = null;
+            ResultSet rs = null;
+            
+            Conexion conn = new Conexion();
+            Connection con = conn.getConexion();
+            
+            String sql = "SELECT * FROM banco WHERE (idbanco = ?)";
+            
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, ID);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                
+                txtIdBanco.setText(String.valueOf(rs.getString("idbanco")));
+                txtNombreBanco.setText(rs.getString("ban_nombre"));
+                txtCodigoBanco.setText(rs.getString("codigo_banco"));
+                if(rs.getString("ban_estado").equals("1")){
+                    rbtnActivarBanco.setSelected(true);
+                }else if(rs.getString("ban_estado").equals("0")){
+                    rbtnActivarBanco.setSelected(true);
+                }
+            }
+            
+        }catch(SQLException ex){
+            System.err.println(ex.toString());
+        }
+        
+    }
+          
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -213,6 +307,7 @@ public class MenuPpal extends javax.swing.JFrame {
 
         jMenuItem1 = new javax.swing.JMenuItem();
         btnGroupComunas = new javax.swing.ButtonGroup();
+        btnGroupBancos = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanelClientes = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -225,7 +320,6 @@ public class MenuPpal extends javax.swing.JFrame {
         txtNombresClientes = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         txtApellidosClientes = new javax.swing.JTextField();
-        txtTelefono = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         txtMail = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
@@ -240,6 +334,7 @@ public class MenuPpal extends javax.swing.JFrame {
         txtFechaNacimento = new javax.swing.JTextField();
         rActivo = new javax.swing.JRadioButton();
         rInactivo = new javax.swing.JRadioButton();
+        txtTelefono = new javax.swing.JTextField();
         jPanelProveedores = new javax.swing.JPanel();
         jPanelCategoriaArticulos = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -264,19 +359,23 @@ public class MenuPpal extends javax.swing.JFrame {
         jPanel12 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        txtEntidadBancaria = new javax.swing.JTextField();
-        jCBoxEstado = new javax.swing.JComboBox<>();
-        btnIngresar1 = new javax.swing.JButton();
-        jTextField5 = new javax.swing.JTextField();
-        btnBuscar1 = new javax.swing.JButton();
+        txtNombreBanco = new javax.swing.JTextField();
+        btnIngresarBanco = new javax.swing.JButton();
+        txtBuscarBanco = new javax.swing.JTextField();
+        btnBuscarBanco = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jtDatosBnc = new javax.swing.JTable();
+        tableBanco = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
-        txtCodigo = new javax.swing.JTextField();
+        txtCodigoBanco = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         btnMenuInicio = new javax.swing.JButton();
         btnCerrarSesion = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JSeparator();
+        rbtnActivarBanco = new javax.swing.JRadioButton();
+        rbtnInactvarBanco = new javax.swing.JRadioButton();
+        btnModificarBanco = new javax.swing.JButton();
+        btnLimpiarBanco = new javax.swing.JButton();
+        txtIdBanco = new javax.swing.JTextField();
         jPanelEstados_Ventas = new javax.swing.JPanel();
         jPanelUsuario = new javax.swing.JPanel();
         jPanelArticulos = new javax.swing.JPanel();
@@ -315,7 +414,6 @@ public class MenuPpal extends javax.swing.JFrame {
         rbtnActivoComuna = new javax.swing.JRadioButton();
         rbtnInactivoComuna = new javax.swing.JRadioButton();
         txtIdComunas = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -421,12 +519,12 @@ public class MenuPpal extends javax.swing.JFrame {
                                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtTelefono)
                                     .addComponent(txtFechaNacimento)
                                     .addGroup(jPanelClientesLayout.createSequentialGroup()
                                         .addComponent(rActivo)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(rInactivo))))
+                                        .addComponent(rInactivo))
+                                    .addComponent(txtTelefono)))
                             .addComponent(btnGuardar))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelClientesLayout.createSequentialGroup()
@@ -439,7 +537,7 @@ public class MenuPpal extends javax.swing.JFrame {
                         .addGroup(jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 293, Short.MAX_VALUE))))
+                        .addGap(0, 297, Short.MAX_VALUE))))
         );
         jPanelClientesLayout.setVerticalGroup(
             jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -600,8 +698,6 @@ public class MenuPpal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Categoria Packs", jPanelCategoriaPacks);
 
-        jPanelRRSS.setBackground(new java.awt.Color(153, 204, 255));
-
         txtRRSS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRRSSActionPerformed(evt);
@@ -693,47 +789,50 @@ public class MenuPpal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("RRSS", jPanelRRSS);
 
-        jPanel12.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel12.setBackground(new java.awt.Color(153, 204, 255));
 
         jLabel7.setText("Entidad Bancaria");
 
         jLabel8.setText("Estado");
 
-        txtEntidadBancaria.addActionListener(new java.awt.event.ActionListener() {
+        txtNombreBanco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEntidadBancariaActionPerformed(evt);
+                txtNombreBancoActionPerformed(evt);
             }
         });
 
-        jCBoxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar:", "Activo", "Inactivo" }));
-
-        btnIngresar1.setText("Ingresar");
-        btnIngresar1.addActionListener(new java.awt.event.ActionListener() {
+        btnIngresarBanco.setText("Ingresar");
+        btnIngresarBanco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIngresar1ActionPerformed(evt);
+                btnIngresarBancoActionPerformed(evt);
             }
         });
 
-        btnBuscar1.setText("Buscar");
+        btnBuscarBanco.setText("Buscar");
 
-        jtDatosBnc.setModel(new javax.swing.table.DefaultTableModel(
+        tableBanco.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Codigo", "Entidad Bancaria", "Estado"
+                "ID", "Codigo", "Banco", "Estado"
             }
         ));
-        jScrollPane2.setViewportView(jtDatosBnc);
+        tableBanco.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableBancoMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tableBanco);
 
         jLabel9.setText("Codigo");
 
-        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
+        txtCodigoBanco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCodigoActionPerformed(evt);
+                txtCodigoBancoActionPerformed(evt);
             }
         });
 
@@ -741,77 +840,119 @@ public class MenuPpal extends javax.swing.JFrame {
 
         btnCerrarSesion.setText("Cerrar Sesion");
 
+        btnGroupBancos.add(rbtnActivarBanco);
+        rbtnActivarBanco.setText("Activo");
+        rbtnActivarBanco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnActivarBancoActionPerformed(evt);
+            }
+        });
+
+        btnGroupBancos.add(rbtnInactvarBanco);
+        rbtnInactvarBanco.setText("Inactivo");
+        rbtnInactvarBanco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtnInactvarBancoActionPerformed(evt);
+            }
+        });
+
+        btnModificarBanco.setText("Modificar");
+        btnModificarBanco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarBancoActionPerformed(evt);
+            }
+        });
+
+        btnLimpiarBanco.setText("Limpiar");
+
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jSeparator3))
+                    .addComponent(jSeparator4)
                     .addGroup(jPanel12Layout.createSequentialGroup()
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addGap(128, 128, 128)
                                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel12Layout.createSequentialGroup()
-                                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtBuscarBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(btnBuscar1))
+                                        .addComponent(btnBuscarBanco))
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addGap(173, 173, 173)
                                 .addComponent(btnMenuInicio)
                                 .addGap(145, 145, 145)
-                                .addComponent(btnCerrarSesion)))
-                        .addGap(0, 349, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jSeparator3))
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
+                                .addComponent(btnCerrarSesion))
                             .addGroup(jPanel12Layout.createSequentialGroup()
-                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel12Layout.createSequentialGroup()
-                                        .addComponent(jLabel9)
-                                        .addGap(57, 57, 57)
-                                        .addComponent(txtCodigo))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel12Layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jCBoxEstado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(txtEntidadBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(18, 18, 18)
-                                .addComponent(btnIngresar1)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator4))
+                                .addGap(35, 35, 35)
+                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel12Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(btnIngresarBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnLimpiarBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel12Layout.createSequentialGroup()
+                                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                                .addGap(100, 100, 100)
+                                                .addComponent(jLabel8)
+                                                .addGap(28, 28, 28)
+                                                .addComponent(rbtnActivarBanco))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel12Layout.createSequentialGroup()
+                                                .addComponent(jLabel7)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(jPanel12Layout.createSequentialGroup()
+                                                        .addComponent(txtIdBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(0, 0, Short.MAX_VALUE))
+                                                    .addComponent(txtNombreBanco))))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(rbtnInactvarBanco, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
+                                        .addGap(11, 11, 11)
+                                        .addComponent(txtCodigoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnModificarBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(343, 343, 343)))
                 .addContainerGap())
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(46, Short.MAX_VALUE)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtEntidadBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIdBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnIngresarBanco))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCodigoBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModificarBanco)
+                    .addComponent(jLabel7)
+                    .addComponent(txtNombreBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addComponent(btnLimpiarBanco)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jCBoxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnIngresar1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(rbtnInactvarBanco)
+                    .addComponent(rbtnActivarBanco)
+                    .addComponent(jLabel8))
+                .addGap(25, 25, 25)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar1))
+                    .addComponent(txtBuscarBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarBanco))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -999,7 +1140,7 @@ public class MenuPpal extends javax.swing.JFrame {
                 txtCodigoComunaActionPerformed(evt);
             }
         });
-        jPanelComunas.add(txtCodigoComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 50, -1));
+        jPanelComunas.add(txtCodigoComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 110, 50, -1));
 
         txtNombreComuna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1065,16 +1206,7 @@ public class MenuPpal extends javax.swing.JFrame {
         btnGroupComunas.add(rbtnInactivoComuna);
         rbtnInactivoComuna.setText("Inactivo");
         jPanelComunas.add(rbtnInactivoComuna, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, -1, -1));
-
-        txtIdComunas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdComunasActionPerformed(evt);
-            }
-        });
         jPanelComunas.add(txtIdComunas, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 60, -1));
-
-        jLabel12.setText("Estado");
-        jPanelComunas.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 60, 20));
 
         jTabbedPane1.addTab("Comunas", jPanelComunas);
 
@@ -1115,24 +1247,12 @@ public class MenuPpal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboBoxArticuloActionPerformed
 
-    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCodigoActionPerformed
-
-    private void btnIngresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnIngresar1ActionPerformed
-
-    private void txtEntidadBancariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEntidadBancariaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEntidadBancariaActionPerformed
-
     private void txtRRSSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRRSSActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRRSSActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        String cli_nombre = txtNombresClientes.getText();
+       /* String cli_nombre = txtNombresClientes.getText();
         String cli_apellido = txtApellidosClientes.getText();
         String RUT = txtRut.getText();
         String cli_direccion = txtDireccion.getText();
@@ -1169,7 +1289,7 @@ public class MenuPpal extends javax.swing.JFrame {
 
         }catch(SQLException e){
             JOptionPane.showMessageDialog(null, e.toString());
-        }
+        }*/
 
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -1191,9 +1311,37 @@ public class MenuPpal extends javax.swing.JFrame {
         llamarDatosComunas();
     }//GEN-LAST:event_TablaComunaMouseClicked
 
-    private void txtIdComunasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdComunasActionPerformed
+    private void txtNombreBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreBancoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdComunasActionPerformed
+    }//GEN-LAST:event_txtNombreBancoActionPerformed
+
+    private void btnIngresarBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarBancoActionPerformed
+        // TODO add your handling code here:
+        MostrarBancos();
+        guardarRadioButtonBanco();
+    }//GEN-LAST:event_btnIngresarBancoActionPerformed
+
+    private void tableBancoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableBancoMouseClicked
+        // TODO add your handling code here:
+        llamarDatosBancos();
+    }//GEN-LAST:event_tableBancoMouseClicked
+
+    private void txtCodigoBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoBancoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoBancoActionPerformed
+
+    private void btnModificarBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarBancoActionPerformed
+        // TODO add your handling code here:
+        MostrarBancos();
+    }//GEN-LAST:event_btnModificarBancoActionPerformed
+
+    private void rbtnInactvarBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnInactvarBancoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbtnInactvarBancoActionPerformed
+
+    private void rbtnActivarBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnActivarBancoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbtnActivarBancoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1221,6 +1369,7 @@ public class MenuPpal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MenuPpal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1240,18 +1389,21 @@ public class MenuPpal extends javax.swing.JFrame {
     public javax.swing.JTable TableCategoriaArt;
     public javax.swing.JTable TblRsResultado;
     public javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnBuscar1;
+    public javax.swing.JButton btnBuscarBanco;
     public javax.swing.JButton btnBuscarComuna;
     public javax.swing.JButton btnCerrarSesion;
+    public javax.swing.ButtonGroup btnGroupBancos;
     public javax.swing.ButtonGroup btnGroupComunas;
     public javax.swing.JButton btnGuardar;
     public javax.swing.JButton btnIngregarArticulo;
     public javax.swing.JButton btnIngresar;
-    private javax.swing.JButton btnIngresar1;
+    public javax.swing.JButton btnIngresarBanco;
     public javax.swing.JButton btnIngresarComuna;
+    public javax.swing.JButton btnLimpiarBanco;
     public javax.swing.JButton btnLimpiarComuna;
     public javax.swing.JButton btnMenuInicio;
     public javax.swing.JButton btnModComuna;
+    public javax.swing.JButton btnModificarBanco;
     public javax.swing.JButton btnOK;
     public javax.swing.JComboBox<String> cbxRRSS;
     private javax.swing.JButton jButton1;
@@ -1259,11 +1411,9 @@ public class MenuPpal extends javax.swing.JFrame {
     public javax.swing.JButton jButton4;
     public javax.swing.JButton jButtonCerrarSesion;
     public javax.swing.JButton jButtonMenuInicio;
-    private javax.swing.JComboBox<String> jCBoxEstado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     public javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     public javax.swing.JLabel jLabel13;
     public javax.swing.JLabel jLabel14;
     public javax.swing.JLabel jLabel15;
@@ -1296,7 +1446,7 @@ public class MenuPpal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelRRSS;
     private javax.swing.JPanel jPanelUsuario;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -1309,32 +1459,35 @@ public class MenuPpal extends javax.swing.JFrame {
     public javax.swing.JTabbedPane jTabbedPane1;
     public javax.swing.JTable jTable1;
     public javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTable jtDatosBnc;
     public javax.swing.JLabel nombre;
     public javax.swing.JRadioButton rActivo;
     public javax.swing.JRadioButton rInactivo;
+    public javax.swing.JRadioButton rbtnActivarBanco;
     public javax.swing.JRadioButton rbtnActivoComuna;
     public javax.swing.JRadioButton rbtnInactivoComuna;
+    public javax.swing.JRadioButton rbtnInactvarBanco;
+    public javax.swing.JTable tableBanco;
     public javax.swing.JTextField txtApellidosClientes;
+    public javax.swing.JTextField txtBuscarBanco;
     public javax.swing.JTextField txtBuscarComunas;
     public javax.swing.JTextField txtBusqudaRS;
     public javax.swing.JTextField txtCategoriaArt;
-    private javax.swing.JTextField txtCodigo;
+    public javax.swing.JTextField txtCodigoBanco;
     public javax.swing.JTextField txtCodigoComuna;
     public javax.swing.JTextField txtDireccion;
-    public javax.swing.JTextField txtEntidadBancaria;
     public javax.swing.JTextField txtFechaArticulo;
     public javax.swing.JTextField txtFechaNacimento;
+    public javax.swing.JTextField txtIdBanco;
     public javax.swing.JTextField txtIdComunas;
     public javax.swing.JTextField txtMail;
     public javax.swing.JTextField txtNombreArticulo;
+    public javax.swing.JTextField txtNombreBanco;
     private javax.swing.JTextField txtNombreCategoriaArt;
     public javax.swing.JTextField txtNombreComuna;
     public javax.swing.JTextField txtNombresClientes;
     public javax.swing.JTextField txtRRSS;
     public javax.swing.JTextField txtRut;
     public javax.swing.JTextField txtStockArticulo;
-    public javax.swing.JTextField txtTelefono;
+    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

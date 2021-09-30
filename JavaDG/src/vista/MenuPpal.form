@@ -12,6 +12,11 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
+    <Component class="javax.swing.ButtonGroup" name="btnGroupBancos">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -113,13 +118,13 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="txtTelefono" max="32767" attributes="0"/>
                                           <Component id="txtFechaNacimento" max="32767" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <Component id="rActivo" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="rInactivo" min="-2" max="-2" attributes="0"/>
                                           </Group>
+                                          <Component id="txtTelefono" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="btnGuardar" min="-2" max="-2" attributes="0"/>
@@ -138,7 +143,7 @@
                                   <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                                   <Component id="jScrollPane4" alignment="0" min="-2" pref="558" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="293" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="297" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -294,11 +299,6 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtTelefono">
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Direccion"/>
@@ -401,6 +401,8 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtTelefono">
             </Component>
           </SubComponents>
         </Container>
@@ -592,11 +594,6 @@
           </Layout>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanelRRSS">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="cc" red="99" type="rgb"/>
-            </Property>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="RRSS">
@@ -813,24 +810,29 @@
             <Container class="javax.swing.JPanel" name="jPanel12">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="cc" red="cc" type="rgb"/>
+                  <Color blue="ff" green="cc" red="99" type="rgb"/>
                 </Property>
               </Properties>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jSeparator3" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="jSeparator4" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jTextField5" min="-2" pref="117" max="-2" attributes="0"/>
+                                                  <Component id="txtBuscarBanco" min="-2" pref="117" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="btnBuscar1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="btnBuscarBanco" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <Component id="jScrollPane2" alignment="0" min="-2" pref="407" max="-2" attributes="0"/>
                                           </Group>
@@ -841,40 +843,51 @@
                                           <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
                                           <Component id="btnCerrarSesion" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                  </Group>
-                                  <EmptySpace min="0" pref="349" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jSeparator3" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                                                  <Component id="txtCodigo" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="jCBoxEstado" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="txtEntidadBancaria" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="btnIngresarBanco" min="-2" pref="86" max="-2" attributes="0"/>
+                                                      <Component id="btnLimpiarBanco" min="-2" pref="86" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Group type="103" groupAlignment="1" attributes="0">
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                                                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                                          <Component id="rbtnActivarBanco" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                          <Group type="103" groupAlignment="0" attributes="0">
+                                                              <Group type="102" attributes="0">
+                                                                  <Component id="txtIdBanco" min="-2" pref="33" max="-2" attributes="0"/>
+                                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                              </Group>
+                                                              <Component id="txtNombreBanco" max="32767" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
+                                                  </Group>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="rbtnInactvarBanco" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabel9" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                                  <Component id="txtCodigoBanco" min="-2" pref="55" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="btnModificarBanco" min="-2" pref="86" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="btnIngresar1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="370" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="343" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jSeparator4" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -883,30 +896,35 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="46" max="32767" attributes="0"/>
                           <Component id="jSeparator4" min="-2" pref="10" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtEntidadBancaria" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtIdBanco" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnIngresarBanco" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCodigoBanco" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnModificarBanco" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNombreBanco" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnLimpiarBanco" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="rbtnInactvarBanco" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbtnActivarBanco" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCBoxEstado" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnIngresar1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jTextField5" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnBuscar1" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtBuscarBanco" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnBuscarBanco" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jScrollPane2" min="-2" pref="92" max="-2" attributes="0"/>
@@ -931,60 +949,66 @@
                     <Property name="text" type="java.lang.String" value="Estado"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtEntidadBancaria">
+                <Component class="javax.swing.JTextField" name="txtNombreBanco">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEntidadBancariaActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombreBancoActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jCBoxEstado">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                      <StringArray count="3">
-                        <StringItem index="0" value="Seleccionar:"/>
-                        <StringItem index="1" value="Activo"/>
-                        <StringItem index="2" value="Inactivo"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                  </AuxValues>
-                </Component>
-                <Component class="javax.swing.JButton" name="btnIngresar1">
+                <Component class="javax.swing.JButton" name="btnIngresarBanco">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ingresar"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIngresar1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnIngresarBancoActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField5">
+                <Component class="javax.swing.JTextField" name="txtBuscarBanco">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnBuscar1">
+                <Component class="javax.swing.JButton" name="btnBuscarBanco">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Buscar"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane2">
                   <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                     <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                   </AuxValues>
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="jtDatosBnc">
+                    <Component class="javax.swing.JTable" name="tableBanco">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="3" rowCount="4">
+                          <Table columnCount="4" rowCount="4">
+                            <Column editable="true" title="ID" type="java.lang.Object"/>
                             <Column editable="true" title="Codigo" type="java.lang.Object"/>
-                            <Column editable="true" title="Entidad Bancaria" type="java.lang.Object"/>
+                            <Column editable="true" title="Banco" type="java.lang.Object"/>
                             <Column editable="true" title="Estado" type="java.lang.Object"/>
                           </Table>
                         </Property>
+                        <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                          <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                        </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tableBancoMouseClicked"/>
+                      </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -993,10 +1017,13 @@
                     <Property name="text" type="java.lang.String" value="Codigo"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCodigo">
+                <Component class="javax.swing.JTextField" name="txtCodigoBanco">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCodigoActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCodigoBancoActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator3">
                 </Component>
@@ -1017,6 +1044,58 @@
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JSeparator" name="jSeparator4">
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="rbtnActivarBanco">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="btnGroupBancos"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Activo"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbtnActivarBancoActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="rbtnInactvarBanco">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="btnGroupBancos"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Inactivo"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbtnInactvarBancoActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnModificarBanco">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Modificar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarBancoActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnLimpiarBanco">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Limpiar"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtIdBanco">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -1404,7 +1483,7 @@
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="380" y="110" width="50" height="-1"/>
+                  <AbsoluteConstraints x="370" y="110" width="50" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -1618,25 +1697,12 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="txtIdComunas">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIdComunasActionPerformed"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="100" y="70" width="60" height="-1"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel12">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Estado"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="230" y="170" width="60" height="20"/>
                 </Constraint>
               </Constraints>
             </Component>
